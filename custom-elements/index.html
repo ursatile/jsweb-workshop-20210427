@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Element</title>
+</head>
+<body>
+    <hello-world></hello-world>    
+<script>
+    class HelloWorldElement extends HTMLElement {
+        constructor() {
+            super();
+            this.innerHTML = "Hello Everybody";
+        }
+    }
+    customElements.define("hello-world", HelloWorldElement);
+</script>
+
+</body>
+
+</html>
