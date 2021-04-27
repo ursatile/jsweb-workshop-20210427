@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <big-red>This text is big and red!</big-red>
+    <big-red>
+        <h4 slot="heading">This is the heading for my list!</h4>
+        <ul>
+            <li>This list is big and red!</li>
+            <li>See?</li>
+        </ul>
+    </big-red>
+    <big-red>
+        <article>
+            <section>
+                <h1>Heading!</h1>
+                <p>paragraph</p>
+            </section>
+        </article>
+    </big-red>
+    <template id="big-red-template">
+        <slot name="heading"></slot>
+        <slot style="font-size: 200%; color: red;"></slot>
+    </template>
+    <script>
+        class BigRedElement extends HTMLElement {
+            constructor() {
+                super();
+                let template = document.getElementById('big-red-template');
+                let node = template.content.cloneNode(true);
+                this.attachShadow({mode: 'open'});
+                this.shadowRoot.appendChild(node);
+            }
+            // connectedCallback() {
+            // }
+        }
+
+        customElements.define("big-red", BigRedElement);
+    </script>
+</body>
+
+</html>
