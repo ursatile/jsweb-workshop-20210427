@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Handlers</title>
+</head>
+
+<body>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+    <button>Button 5</button>
+    <script>
+        function buttonMouseOver(evt) {
+            console.log(evt);
+            this.style.backgroundColor='magenta';
+        }
+        function buttonClick(evt) {
+            let button = evt.target;
+            window.alert(`You clicked ${button.innerText}`);
+        }
+        let buttons = document.querySelectorAll("button");
+        buttons.forEach(function(button) {
+            button.addEventListener("click", buttonClick);
+            button.addEventListener("mouseover", buttonMouseOver);
+        });
+
+        
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Handlers</title>
+</head>
+
+<body>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+    <button>Button 5</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+<hr />    <script>
+        function bodyClick(evt) {
+            let target = evt.target;
+            if (evt.target.tagName == "BUTTON") {
+                alert(`You clicked ${evt.target.innerText}`);
+            }
+            console.log(target);
+        }
+        document.body.addEventListener("click", bodyClick);
+    </script>
+</body>
+
+
+</html>

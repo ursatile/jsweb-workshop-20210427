@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color Picker</title>
+    <script src="color-picker.js"></script>
+</head>
+
+<body>
+    <h1 id="my-headline">This is a headline!</h1>
+    <color-picker id="color-picker-1" for="my-headline"></color-picker>
+    <script>
+        document.getElementById('color-picker-1').addEventListener("pick-color", evt => {
+            let targetElementId = evt.target.getAttribute("for");
+            let targetElement = document.getElementById(targetElementId);
+            targetElement.style.color = evt.detail;            
+        });
+    </script>
+</body>
+
+</html>
