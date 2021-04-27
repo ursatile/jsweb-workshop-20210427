@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customized Built-in Elements</title>
+    
+</head>
+<body>
+    <p is="word-count">This is a paragraph!</p>    
+    <p is="word-count">This is another paragraph with more text in it!</p>
+    <script>
+        class WordCountParagraphElement extends HTMLParagraphElement {
+            constructor() {
+                super();
+                let wordCount = this.innerText.split(/\s+/).length;
+                this.title = `${wordCount} words in this paragraph`;
+            }            
+        }
+        customElements.define("word-count", WordCountParagraphElement, { extends: "p" });
+    </script>
+</body>
+
+</html>
