@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Element</title>
+</head>
+<body>
+    <hello-world></hello-world>
+    <hello-world person></hello-world>
+    <hello-world person="Sydney"></hello-world>
+<script>
+    class HelloWorldElement extends HTMLElement {
+        // constructor() {
+        //     super();
+        // }
+        connectedCallback() {
+            let name = this.getAttribute("person");
+            if (name === null) {
+                name = "World"
+            } else if (name === "") {
+                name = "(empty string)";
+            }
+
+            let p = document.createElement("p");
+            let greeting = `Hello ${name}`;
+            p.innerText = greeting;
+            this.appendChild(p);
+        }
+    }
+    customElements.define("hello-world", HelloWorldElement);
+</script>
+
+</body>
+
+</html>

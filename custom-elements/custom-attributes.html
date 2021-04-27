@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Element</title>
+    <script src="custom-attributes.js"> </script>    
+</head>
+<body>
+    <hello-world id="my-greeting" person="Matt"></hello-world>
+
+    <input type="text" name="greeting-name" id="greeting-name" />
+    <input type="button" name="greeting-button" value="Go" id="greeting-button"
+    onclick="updateGreeting()"
+     />
+    <script>
+        function updateGreeting() {        
+            let greetingName = document.getElementById('greeting-name').value;
+            let helloWorld = document.getElementById('my-greeting');
+            helloWorld.setAttribute("person", greetingName);
+        }
+    </script>
+</body>
+
+</html>
