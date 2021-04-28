@@ -5,10 +5,10 @@ export default class MyCounterElement extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.renderer = new Renderer(this.shadowRoot);
     }
 
     connectedCallback() {
+        this.renderer = new Renderer(this.shadowRoot);
         let count = parseInt(this.getAttribute("initial-value"));
         this.engine = new CountingEngine(count);
         this.renderer.render(this.engine);

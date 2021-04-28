@@ -1,32 +1,40 @@
 import * as html from './html.js';
 
 export default class Renderer {
+
+    get incrementButton() {
+        return this._incrementButton;
+    }
+    get decrementButton() {
+        return this._decrementButton;
+    }
+    get resetButton() {
+        return this._resetButton;
+    }
+
     constructor(shadowRoot) {
-        this.shadowRoot = shadowRoot;
+        this._shadowRoot = shadowRoot;
+        this._incrementButton = html.element('button', {}, '▲');
+        this._decrementButton = html.element('button', {}, '▼');
+        this._span = html.element('span', { "id" : "counter" });
+        this._resetButton = html.element('button', { 'id': 'reset-button' }, 'Reset');
     }
 
     render(counterEngine) {
         const cssLink = html.element('link', { "href":"counter.css", "rel":"stylesheet" });
-        this.shadowRoot.appendChild(cssLink);
-
+        this._shadowRoot.appendChild(cssLink);
         let wrapper = html.element('div', { "class" : "counter-wrapper"});
-
-        this.incrementButton = html.element('button', {}, '▲');
-        this.decrementButton = html.element('button', {}, '▼');
-        
-        this.span = html.element('span', { "id" : "counter" }, counterEngine.value);
-        
         let counter = html.element('div', {"class": "counter"});
-        counter.appendChild(this.span);
-        wrapper.appendChild(this.decrementButton);
+        counter.appendChild(this._span);
+        wrapper.appendChild(this._decrementButton);
         wrapper.appendChild(counter);
-        wrapper.appendChild(this.incrementButton);
-        this.resetButton = html.element('button', { 'id': 'reset-button' }, 'Reset');
-        wrapper.appendChild(this.resetButton);
-        this.shadowRoot.appendChild(wrapper);
+        wrapper.appendChild(this._incrementButton);
+        wrapper.appendChild(this._resetButton);
+        this._shadowRoot.appendChild(wrapper);
+        this.update(counterEngine);
     }
 
     update(counterEngine) {
-        this.span.innerHTML = counterEngine.value;
+        this._span.innerHTML = counterEngine.value;
     }
 }
