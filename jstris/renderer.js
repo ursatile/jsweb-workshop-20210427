@@ -29,7 +29,7 @@ export default class Renderer {
             console.log(block);
             block.cells.forEach(cell => {                
               let span = this._shadowRoot.getElementById(`span-${cell.key}`);
-              span.setAttribute('style', 'background-color:yellow');
+              span.className = block.name;
             });
         })
 

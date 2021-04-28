@@ -6,6 +6,10 @@ export class Block {
         return this._cells;
     }
 
+    get name() {
+        return "test-block";
+    }
+
     constructor(rowIndex, colIndex) {
         this._cells = new Array();
         this._cells.push(new Cell(0+rowIndex, 0+colIndex));

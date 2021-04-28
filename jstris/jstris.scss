@@ -5,6 +5,9 @@ span {
     border: 1px solid #000;    
     padding: 0;
     margin: 1px;
+    &.test-block {
+        background-color: yellow;
+    }
 }
 div {
     padding: 0;
