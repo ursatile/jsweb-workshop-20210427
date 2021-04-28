@@ -16,6 +16,10 @@ export class Cell {
         return `${this._rowIndex}-${this.colIndex}`;
     }
 
+    isInSamePositionAs(cell) {
+        return this.rowIndex == cell.rowIndex && this.colIndex == cell.colIndex;
+    }
+    
     move(direction) {
         switch(direction) {
             case 'left': return new Cell(this.rowIndex, this.colIndex-1);
