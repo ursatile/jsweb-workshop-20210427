@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>JS without modules</title>
-        <style>
-            canvas { border: 1px solid #000; }
-            fieldset { width: 600px; box-sizing: border-box; }
-        </style>
-        <script src="rectangle.js"></script>
-        <script src="flag-de.js"></Script>
-    </head>
-    <body>
-        <canvas id="canvas" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
-        <script>
-            document.getElementById('canvas').addEventListener("click", drawShape);
-            function drawShape(e) {
-                var rect = e.target.getBoundingClientRect();
-                var x = e.clientX - rect.left; //x position within the element.
-                var y = e.clientY - rect.top;  //y position within the element.
-                Flag('canvas', x, y);
-            }
-        </script>
-    </body>
+
+<head>
+    <title>JS with modules</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+
+        fieldset {
+            width: 600px;
+            box-sizing: border-box;
+        }
+    </style>
+    
+    <script src="rectangle.js"></script>
+    <script src="flag-de.js"></Script>
+    <script src="flag-ua.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400" style="width: 600px; height: 400px;"></canvas>
+    <script>
+        document.getElementById('canvas').addEventListener("click", drawShape);
+        function drawShape(e) {
+            var rect = e.target.getBoundingClientRect();
+            var x = e.clientX - rect.left; //x position within the element.
+            var y = e.clientY - rect.top;  //y position within the element.
+            Flag('canvas', x, y);
+        }
+    </script>
+</body>
+
 </html>
