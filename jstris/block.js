@@ -10,6 +10,12 @@ export class Block {
         return "test-block";
     }
 
+    move(colOffset) {
+        this._cells.forEach(c => {
+            c.colIndex += colOffset;
+        });
+    }
+
     constructor(rowIndex, colIndex) {
         this._cells = new Array();
         this._cells.push(new Cell(0+rowIndex, 0+colIndex));

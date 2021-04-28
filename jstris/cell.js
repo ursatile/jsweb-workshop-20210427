@@ -7,8 +7,17 @@ export class Cell {
     get rowIndex() {
         return this._rowIndex;
     }
+
+    set rowIndex(value) { 
+        this._rowIndex = value;
+    }
+
     get colIndex() {
         return this._colIndex;
+    }
+
+    set colIndex(value) {
+        this._colIndex = value;
     }
 
     get key() {

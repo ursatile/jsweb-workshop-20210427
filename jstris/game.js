@@ -19,8 +19,12 @@ export class Game {
     }
 
     addBlock(rowIndex, colIndex) {
-        let block = new Block(rowIndex, colIndex);
-        this._blocks.push(block);
+        this.currentblock = new Block(rowIndex, colIndex);
+        this._blocks.push(this.currentblock);
+    }
+
+    moveBlock(colOffset) {
+        this.currentblock.move(colOffset);
     }
 
     constructor(rowCount, colCount) {

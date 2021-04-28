@@ -9,14 +9,20 @@ class TetrisGameElement extends HTMLElement {
     }
 
     connectedCallback() {
+        this.game = new Game(20, 10);
+        this.game.addBlock(2, 5);
+        this.renderer.draw(this.game);
+        document.addEventListener("keydown", this.handleKeydown.bind(this));
+    }
 
-
-        let game = new Game(20, 10);
-        game.addBlock(2, 5);
-        this.renderer.draw(game);
-
-
-
+    handleKeydown(event) {
+        switch (event.code) {
+            case "ArrowLeft": this.game.moveBlock(-1); break;
+            case "ArrowRight": this.game.moveBlock(1); break;
+            default: return;
+        }
+        event.preventDefault();
+        this.renderer.update(this.game);
     }
 
 }
