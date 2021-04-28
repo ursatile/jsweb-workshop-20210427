@@ -14,7 +14,7 @@ export default class Renderer {
 
     constructor(shadowRoot) {
         this._shadowRoot = shadowRoot;
-        this._incrementButton = html.element('button', {}, '▲');
+        this._incrementButton = html.element('button', {'id': 'increment-button'}, '▲');
         this._decrementButton = html.element('button', {}, '▼');
         this._span = html.element('span', { "id" : "counter" });
         this._resetButton = html.element('button', { 'id': 'reset-button' }, 'Reset');
@@ -35,6 +35,6 @@ export default class Renderer {
     }
 
     update(counterEngine) {
-        this._span.innerHTML = counterEngine.value;
+        this._span.innerText = counterEngine.value;
     }
 }

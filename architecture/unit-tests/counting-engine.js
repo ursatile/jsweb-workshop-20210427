@@ -1,7 +1,9 @@
 export default class CountingEngine {    
     constructor(count) {
-        this.initialValue = parseInt(count) || 0;
-        this.value = this.initialValue;
+        let value = parseInt(count) || 0;
+        if (value < 0) value = 0;
+        this.initialValue = value;
+        this.value = value;
     }
     increment() {
         this.value++;

@@ -40,7 +40,6 @@ export default class MyCounterElement extends HTMLElement {
         }
         event.preventDefault();
         this.renderer.update(this.engine);
-
     }
 }
 
