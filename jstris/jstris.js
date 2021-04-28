@@ -17,8 +17,8 @@ class TetrisGameElement extends HTMLElement {
 
     handleKeydown(event) {
         switch (event.code) {
-            case "ArrowLeft": this.game.moveBlock(-1); break;
-            case "ArrowRight": this.game.moveBlock(1); break;
+            case "ArrowLeft": this.game.moveBlock("left"); break;
+            case "ArrowRight": this.game.moveBlock("right"); break;
             default: return;
         }
         event.preventDefault();

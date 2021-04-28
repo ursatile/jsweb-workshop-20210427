@@ -8,20 +8,19 @@ export class Cell {
         return this._rowIndex;
     }
 
-    set rowIndex(value) { 
-        this._rowIndex = value;
-    }
-
     get colIndex() {
         return this._colIndex;
-    }
-
-    set colIndex(value) {
-        this._colIndex = value;
     }
 
     get key() {
         return `${this._rowIndex}-${this.colIndex}`;
     }
 
+    move(direction) {
+        switch(direction) {
+            case 'left': return new Cell(this.rowIndex, this.colIndex-1);
+            case 'right': return new Cell(this.rowIndex, this.colIndex+1);
+            case 'down': return new Cell(this.rowIndex+1, this.colIndex);
+        }
+    }
 }
